@@ -11,7 +11,7 @@ epsilon = 1.65e-21 # kg*m^2/s^2
 
 # Input parameters
 timestep = 1e-3 # sqrt(m*sigma**2/epsilon)
-temperature = 80 # K
+temperature = 300 # K
 lattice_constant = 2 # sigma
 n_lattices = 1 # lattices per row, column, layer
 repetitions = 10 # how many times to run the updating algorithm before showing new locations in the animation
@@ -101,7 +101,8 @@ def clicked(event):
     for atom in lattice.field:
         atom.vel = atom.vel*factor
 
-set_t_button = Button(ax2, label='', color='white', hovercolor='white')
+axset_t = fig.add_axes([0.4, 0.05, 0.1, 0.075])
+set_t_button = Button(axset_t, label='Init Temp', hovercolor='white')
 set_t_button.on_clicked(clicked)
 
 time_list = [] # Keeps track of global time
